@@ -47,6 +47,19 @@ cmake -S . -B build
 cmake --build build --target texassolver_console
 ```
 
+## Windows 11 (Qt GUI build)
+
+**Tested:** Qt 5.1.0 with the MinGW kit (console build); the GUI project also builds in Qt Creator on Windows. If you use an MSVC kit, make sure the MSVC runtime is installed (see dependencies below).
+
+1. Install Qt 5.x and Qt Creator.
+2. Open `TexasSolverGui.pro` in Qt Creator, select your kit (MinGW or MSVC), then **Build**.
+   - Command-line alternative: run `qmake TexasSolverGui.pro` then build the generated Makefile (MinGW) or solution (MSVC).
+3. After building, run `windeployqt TexasSolverGui.exe` from the Qt `bin` directory to bundle Qt DLLs.
+
+**Runtime dependencies**
+- **MSVC build:** Install the matching **Microsoft Visual C++ Redistributable**.
+- **OpenMP:** Ensure the OpenMP runtime is present: `vcomp140.dll` (MSVC) or `libgomp-1.dll` (MinGW).
+
 ## Speed benchmark with piosolver
 
 Piosolver and my TexasSolver(console version) run use the same settings (spr=10,flop game) and their result are aligned.
