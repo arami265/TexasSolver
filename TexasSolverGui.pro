@@ -51,16 +51,17 @@ QMAKE_LFLAGS += /openmp
 win32:!msvc {
 QMAKE_CXXFLAGS += -fopenmp
 QMAKE_LFLAGS += -fopenmp
+QMAKE_LFLAGS += -v
 LIBS += -lgomp
 }
 
 linux: {
 QMAKE_CXXFLAGS += -fopenmp
 QMAKE_LFLAGS += -fopenmp
+QMAKE_LFLAGS += -v
 }
 
 QMAKE_CXXFLAGS_RELEASE *= -O2
-QMAKE_LFLAGS += -v
 
 SOURCES += \
     main.cpp \
