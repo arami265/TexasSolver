@@ -37,6 +37,16 @@ After install the solver, double click the application binary (TexasSolverGui.ex
 
 Please check [console version document](https://github.com/bupticybee/TexasSolver/tree/console#usage) for more.
 
+### Console build (CMake)
+
+The console target uses `src/console.cpp` plus the shared solver sources in `src/` and headers from `include/`.
+To build from source with CMake, install Qt 5 (Core) and then run:
+
+```bash
+cmake -S . -B build
+cmake --build build --target texassolver_console
+```
+
 ## Speed benchmark with piosolver
 
 Piosolver and my TexasSolver(console version) run use the same settings (spr=10,flop game) and their result are aligned.
@@ -72,4 +82,3 @@ icybee@yeah.net
 
 4. Q: What framework do you use to write the ui?
    - A: I use QT 5.1.0 (opensourced edition) to build the GUI version. For the console version, I use Mingw + CMake.
-
