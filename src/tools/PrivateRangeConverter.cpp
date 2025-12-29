@@ -34,6 +34,12 @@ vector<PrivateCards> PrivateRangeConverter::rangeStr2Cards(string range_str, vec
                 for(const string& one_suit :Card::getSuits()){
                     int card1 = Card::strCard2int(rank1 + one_suit);
                     int card2 = Card::strCard2int(rank2 + one_suit);
+                    if(Card::boardsHasIntercept(
+                            Card::boardInts2long(vector<int>{card1,card2}),
+                            Card::boardInts2long(initial_boards)
+                    )){
+                        continue;
+                    }
                     this_card = PrivateCards(card1,card2,weight);
                     private_cards.push_back(this_card);
                 }
